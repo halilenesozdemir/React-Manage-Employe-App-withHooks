@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Employee from './Employee';
 import { EmployeeContext } from '../contexts/EmployeeContext';
 import { Button, Modal } from 'react-bootstrap';
@@ -8,8 +8,12 @@ const EmployeeList = () => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-
   const { employees } = useContext(EmployeeContext);
+
+  useEffect(() => {
+    handleClose();
+  }, [employees]);
+
   return (
     <>
       <div className="table-title">
