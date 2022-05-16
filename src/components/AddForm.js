@@ -1,22 +1,36 @@
 import { Form, Button } from 'react-bootstrap';
+import { EmployeeContext } from '../contexts/EmployeeContext';
+import { useContext, useState } from 'react';
 
 const AddForm = () => {
+  const { addEmployee } = useContext(EmployeeContext);
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    addEmployee(name, email, address, phone);
+  };
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group>
-        <Form.Control type="text" placeholder="Name *" required />
+        <Form.Control type="text" placeholder="Name *" value={name} onChange={e => setName(e.target.value)} required />
       </Form.Group>
 
       <Form.Group>
-        <Form.Control type="email" placeholder="Email *" required />
+        <Form.Control type="email" placeholder="Email *" value={email} onChange={e => setEmail(e.target.value)} required />
       </Form.Group>
 
       <Form.Group>
-        <Form.Control type="textarea" placeholder="Address" required />
+        <Form.Control type="textarea" placeholder="Address" value={address} onChange={e => setAddress(e.target.value)} required />
       </Form.Group>
 
       <Form.Group>
-        <Form.Control type="text" placeholder="Phone" required />
+        <Form.Control type="text" placeholder="Phone" value={phone} onChange={e => setPhone(e.target.value)} required />
       </Form.Group>
 
       <Button variant="success" type="submit" block>

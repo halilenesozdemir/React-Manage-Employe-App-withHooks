@@ -13,16 +13,8 @@ const Employee = ({ employees }) => {
                 &#xE254;
               </i>
             </a>
-            <a
-              href="#deleteEmployeeModal"
-              className="delete"
-              data-toggle="modal"
-            >
-              <i
-                className="material-icons"
-                data-toggle="tooltip"
-                title="Delete"
-              >
+            <a href="#deleteEmployeeModal" className="delete" data-toggle="modal">
+              <i className="material-icons" data-toggle="tooltip" title="Delete">
                 &#xE872;
               </i>
             </a>
