@@ -1,6 +1,6 @@
 import { Form, Button } from 'react-bootstrap';
 import { EmployeeContext } from '../contexts/EmployeeContext';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 const AddForm = () => {
   const { addEmployee } = useContext(EmployeeContext);
@@ -46,7 +46,7 @@ const AddForm = () => {
         <Form.Control type="text" placeholder="Phone" value={phone} name="phone" onChange={e => onInputChange(e)} required />
       </Form.Group>
 
-      <Button variant="success" type="submit" block>
+      <Button variant="success" type="submit" block="true">
         Add new Employee
       </Button>
     </Form>
