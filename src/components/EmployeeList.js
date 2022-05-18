@@ -5,10 +5,13 @@ import { Button, Modal } from 'react-bootstrap';
 import AddForm from './AddForm';
 
 const EmployeeList = () => {
+  const { employees } = useContext(EmployeeContext);
+  const [showAlert, setShowAlert] = useState(false);
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  const { employees } = useContext(EmployeeContext);
+
+  const handleShowAlert = () => setShowAlert(true);
 
   useEffect(() => {
     handleClose();
