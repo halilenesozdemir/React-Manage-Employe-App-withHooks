@@ -1,5 +1,5 @@
 import { EmployeeContext } from '../contexts/EmployeeContext';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import EditForm from './EditForm';
 
@@ -9,6 +9,10 @@ const Employee = ({ employee }) => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
+  useEffect(() => {
+    handleClose();
+  }, [employee]);
 
   return (
     <>
@@ -35,7 +39,7 @@ const Employee = ({ employee }) => {
           <Modal.Title>Update Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <EditForm />
+          <EditForm theEmployee={employee} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

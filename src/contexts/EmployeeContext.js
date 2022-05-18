@@ -60,6 +60,7 @@ const EmployeeContextProvider = props => {
         employees,
         addEmployee,
         deleteEmployee,
+        updateEmployee,
       }}
     >
       {props.children}
