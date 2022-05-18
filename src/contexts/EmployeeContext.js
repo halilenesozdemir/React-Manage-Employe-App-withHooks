@@ -50,6 +50,10 @@ const EmployeeContextProvider = props => {
     SetEmployees(employees.filter(employee => employee.id !== id));
   };
 
+  const updateEmployee = (id, updatedEmployee) => {
+    SetEmployees(employees.map(employee => (employee.id === id ? updatedEmployee : employee)));
+  };
+
   return (
     <EmployeeContext.Provider
       value={{
